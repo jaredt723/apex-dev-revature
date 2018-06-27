@@ -1,0 +1,92 @@
+<aura:component controller="AccountController" implements="force:appHostable,flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId,forceCommunity:availableForAllPageTypes,force:lightningQuickAction" access="global" >
+    
+    <!--aura:handler name="init" value="{!this}" action="{!c.doInit}"/-->
+    <aura:dependency resource="markup://force:navigateToSObject" type="EVENT"/>
+    <aura:attribute name="accObj" type="Account" default="{'sobjectType':'Account'}"/>
+    <aura:attribute name="options" type="List" />
+    <aura:attribute name="selectedtype" type="String" />
+    <aura:attribute name="selectedValue" type="String" default="Red"/>
+    
+    
+    <div class="demo-only" style="width:440px">
+        <div class="slds-form slds-form_compound">
+            <div class="slds-page-header">
+                <div class="slds-media">
+                    <div class="slds-media__figure">
+                        <span class="slds-icon_container slds-icon-standard-opportunity" title="Description of icon when needed">
+                            
+                        </span>
+                    </div>
+                    <div class="slds-media__body">
+                        <h1 class="slds-page-header__title slds-truncate slds-align-middle" title="">Account Form</h1>
+                        <p class="slds-text-body_small slds-line-height_reset"></p>
+                    </div>
+                </div>
+            </div>
+            <fieldset class="slds-form-element">
+                <!--legend class="slds-form-element__label slds-form-element__legend slds-text-title_caps">Location</legend-->
+                <div class="slds-form-element__group">
+                    <div class="slds-form-element__row">
+                        <div class="slds-form-element slds-size_1-of-2">
+                            <label class="slds-form-element__label" for="input-01">Name</label>
+                            <ui:inputText class="slds-input" value="{!v.accObj.Name}" />
+                        </div>
+                        <div class="slds-form-element slds-size_1-of-2">
+                            <label class="slds-form-element__label" for="input-02">Account Number</label>
+                            <ui:inputText class="slds-input" value="{!v.accObj.AccoutnNumber}" />
+                        </div>
+                    </div>
+                </div>
+            </fieldset>
+            <fieldset class="slds-form-element">
+                <!--legend class="slds-form-element__label slds-form-element__legend slds-text-title_caps">Location</legend-->
+                <div class="slds-form-element__group">
+                    <div class="slds-form-element__row">
+                        <div class="slds-form-element slds-size_1-of-2">
+                            <label class="slds-form-element__label" for="input-01">Latitude</label>
+                            <input type="text" id="input-01" class="slds-input" />
+                        </div>
+                        <div class="slds-form-element slds-size_1-of-2">
+                            <label class="slds-form-element__label" for="input-02">Longitude</label>
+                            <input type="text" id="input-02" class="slds-input" />
+                        </div>
+                    </div>
+                </div>
+            </fieldset>
+            <fieldset class="slds-form-element">
+                <!--legend class="slds-form-element__label slds-form-element__legend slds-text-title_caps">Location</legend-->
+                <div class="slds-form-element__group">
+                    <div class="slds-form-element__row">
+                        <div class="slds-form-element slds-size_1-of-2">
+                            <label class="slds-form-element__label" for="input-01">Latitude</label>
+                            <input type="text" id="input-01" class="slds-input" />
+                        </div>
+                        <div class="slds-form-element slds-size_1-of-2">
+                            <label class="slds-form-element__label" for="input-02">Longitude</label>
+                            <input type="text" id="input-02" class="slds-input" />
+                        </div>
+                    </div>
+                </div>
+            </fieldset>
+            <fieldset class="slds-form-element">
+                <!--legend class="slds-form-element__label slds-form-element__legend slds-text-title_caps">Location</legend-->
+                <div class="slds-form-element__group">
+                    <div class="slds-form-element__row">
+                        <div class="slds-form-element slds-size_1-of-2">
+                            <label class="slds-form-element__label" for="input-01">Latitude</label>
+                            <input type="text" id="input-01" class="slds-input" />
+                        </div>
+                        <div class="slds-form-element slds-size_1-of-2">
+                            <label class="slds-form-element__label" for="input-02">Longitude</label>
+                            <input type="text" id="input-02" class="slds-input" />
+                        </div>
+                    </div>
+                </div>
+            </fieldset>
+            <div class="slds-button-group" role="group">
+                <lightning:button type="button" class="slds-button slds-button--neutral">Cancel</lightning:button>
+                <ui:button class="slds-button slds-button--brand" aura:id="button" label="Save1" press="{!c.save}"/>
+            </div>
+        </div>
+    </div>
+</aura:component>
