@@ -1,0 +1,24 @@
+<apex:page controller="PaginationController" >
+    <apex:form >
+    	<apex:PageBlock >
+        	<apex:PageBlockTable value="{!contactlist}" var="contacts" id="oppTable">
+                <apex:column title="Contact Name" >
+                	<!--<apex:outputtext label="name" value="{! contacts.name }"/>-->
+                    <apex:inputtext label="name" value="{! contacts.Lastname}">
+                        <!--c:VFcomponent myValue="{!contacts.lastname}" bordercolor="red"/-->
+                        <apex:actionsupport event="onchange" action="{!updatecontact}">
+                            <apex:param name="contactid" assignto="{!contactid}" value="{!contacts.id}" />
+                            <apex:param name="contactname" assignto="{!contactname}" value="{!contacts.lastname}" />
+                        </apex:actionsupport>
+                    </apex:inputtext>
+                </apex:column>s
+            </apex:PageBlockTable>
+            
+            <apex:pageBlockButtons >
+                <apex:commandButton value="Previous" action="{!prevpage}" disabled="{! IF(breakpoint == 0, true, false) }"/>
+                <apex:commandButton value="Next" action="{!nextpage}" disabled="{! IF(breakpoint <= maxbreak, false, true) }"/>
+                <apex:commandButton value="Save" action="{! save }" />
+            </apex:pageBlockButtons>
+        </apex:PageBlock>
+    </apex:form>
+</apex:page>

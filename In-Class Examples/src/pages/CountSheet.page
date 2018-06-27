@@ -1,0 +1,20 @@
+<apex:page standardStylesheets="false" showHeader="false" sidebar="false"
+           standardController="Merchandise__c" recordsetVar="products">
+    <apex:stylesheet value="{!URLFOR($Resource.styles, 'styles.css')}"/>
+    <h1>Inventory Count Sheet</h1>
+    <apex:form >
+        <apex:dataTable value="{!products}" var="pitem" rowClasses="odd,even">
+            <apex:column headerValue="Product">
+                <apex:outputText value="{!pitem.name}"/>
+            </apex:column>
+            <apex:column headerValue="Inventory">
+                <apex:outputField value="{!pitem.Quantity__c}">
+                    <apex:inlineEditSupport event="ondblclick" showOnEdit="update"/>
+                </apex:outputField>
+            </apex:column>
+        </apex:dataTable>
+        <br/>
+        <apex:commandButton id="update" action="{!quicksave}" value="Update Counts"
+                            styleclass="updateButton"/>
+    </apex:form>
+</apex:page>

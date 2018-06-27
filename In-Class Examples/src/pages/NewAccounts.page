@@ -1,0 +1,36 @@
+<apex:page standardController="Account" extensions="accountextension">
+    <apex:form >
+    	<apex:pageblock title="{! If($CurrentPage.parameters.id == null, 'Create Account', 'Edit Account') }">
+            <apex:pageBlockButtons >
+            	<apex:commandButton value="Save (Redirect To Contact)" action="{! saveandredirect }" rendered="{! If($CurrentPage.parameters.id == null, false, true) }" />
+                <apex:commandButton value="Save" action="{! save }" rendered="{! If($CurrentPage.parameters.id == null, true, false) }" />
+                <apex:commandButton value="Cancel" action="{! Cancel }"/>
+                <apex:commandButton value="Delete" action="{! Delete }" rendered="{! If($CurrentPage.parameters.id == null, false, true) }" />
+            </apex:pageBlockButtons>
+            
+            <apex:pageBlockSection title="Account Information">
+                <apex:inputField value="{! Account.Name }" />
+                <apex:inputField value="{! Account.AccountSource }" />
+                <apex:inputField value="{! Account.Rating }" />
+            </apex:pageBlockSection>
+            
+            <apex:pageBlockSection title="Company Information">
+            	<apex:inputField value="{! Account.Type }" />
+                <apex:inputField value="{! Account.Industry }" />
+                <apex:inputField value="{! Account.NumberOfEmployees }" />
+                <apex:inputField value="{! Account.AnnualRevenue }" />        
+            </apex:pageBlockSection>
+            
+            <apex:pageBlockSection title="Location Information">
+                <apex:inputField value="{! Account.BillingCity }" />
+                <apex:inputField value="{! Account.BillingState }" />
+                <apex:inputField value="{! Account.ShippingCity }" />
+                <apex:inputField value="{! Account.ShippingState }" />
+                <apex:inputField value="{! Account.Phone }" />
+                <apex:inputField value="{! Account.Fax }" />
+            </apex:pageBlockSection>
+            
+        </apex:pageblock>
+    </apex:form>
+    <apex:relatedList list="Contacts" />
+</apex:page>

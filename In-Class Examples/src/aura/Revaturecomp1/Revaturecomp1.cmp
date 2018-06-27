@@ -1,0 +1,17 @@
+<aura:component implements="force:appHostable,flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId,forceCommunity:availableForAllPageTypes,force:lightningQuickAction" access="global" >
+    
+    <aura:attribute name="Amount" type="double" default="25000" />
+    <aura:attribute name="Tenure" type="double" default="16" />
+    <aura:attribute name="Maturity" type="double" default="34" />
+    <div>
+        <ui:inputNumber label="Coupon amount" value="{!v.Amount}"/>
+        <ui:inputNumber aura:id="tenure" label="Coupon Tenure" value="{!v.Tenure}"/>
+        <h2>Maturity Amount will be:</h2>
+        <ui:outputNumber value="{!v.Maturity}"/> <br/>
+        <ui:button label="Calculate coupon returns" press="c.calculate1"/><br/>
+        <ui:button label="Add css" press = "c.addcss" />
+        <ui:button label="Remove css" press="c.removecss"/>
+        
+    </div>
+    <p aura:id="text" class="toggle1">Dynamic text toggling</p>
+</aura:component>

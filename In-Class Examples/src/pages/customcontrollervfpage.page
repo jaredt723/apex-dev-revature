@@ -1,0 +1,11 @@
+<apex:page controller="studcustomcontroller" >
+	<apex:pageblock title="welcome {!$User.FirstName}">
+		<apex:PageBlockTable value="{!students}" var="studmast">
+
+            <apex:column value="{!studmast.Id}"/>
+            <apex:column value="{!studmast.name}"/>
+            <apex:column value="{!studmast.Department__c}"/>
+			
+		</apex:PageBlockTable>
+	</apex:pageblock>
+</apex:page>

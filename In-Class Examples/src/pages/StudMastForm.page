@@ -1,0 +1,34 @@
+<apex:page standardController="StudentMaster__c" extensions="studmastextension">
+    
+    <apex:form >
+        <apex:pageMessage summary="Complete this page!" severity="Error" strength="1"/>
+
+        <apex:PageBlock title="Edit StudentMaster">
+            <apex:PageBlockButtons >
+                <apex:commandButton action="{! edit }" value="Edit" />
+                <apex:commandButton action="{! saveandredirect }" value="Save and Redirect" />
+                <apex:commandButton action="{! saveandredirect2 }" value="Save and Redirect 2" />
+            </apex:PageBlockButtons>
+            
+            <apex:actionRegion >
+            	<apex:inputCheckBox label="Show StudentMaster Info" value="{! togglescreen}" >
+                    <apex:actionSupport event="onchange"/>
+                </apex:inputCheckBox>
+            </apex:actionRegion>
+            
+            <apex:PageBlockSection columns="1" title="{! welcomemsg }" id="studmast" rendered="{!togglescreen}">
+                <!--<apex:outputLabel value="Department: " for="Department"/>-->
+                <apex:inputField value="{! sm.Name }" id="Department" />
+                <!--<apex:outputLabel value="Date of Joining: " for="DOJ"/>-->
+                <apex:inputField value="{! StudentMaster__c.DOJ__c}" id="DOJ" />
+                <!--<apex:outputLabel value="Age: " for="age"/>-->
+                <apex:inputField value="{! sm.Age__c }" id="ageBlock" />
+                    <apex:Message for="ageBlock"/>
+                <!--<apex:outputLabel value="Status: " for="status"/>-->
+                <apex:inputField value="{! StudentMaster__c.Status__c}" id="status" />
+            </apex:PageBlockSection>
+            
+        </apex:PageBlock>
+        
+    </apex:form>
+</apex:page>

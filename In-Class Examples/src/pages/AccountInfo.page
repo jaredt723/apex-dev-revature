@@ -1,0 +1,19 @@
+<apex:page standardController="Contact">
+    <apex:pageblock title="Welcome {!$User.FirstName}! Contact details of {!Contact.name} ">
+    	<apex:pageBlockTable value="{!Contact}" var="ct">
+            <apex:column value="{!ct.FirstName}"/>
+            <apex:column value="{!ct.LastName}"/>
+            <apex:column value="{!ct.Email}"/>
+            <apex:column value="{!ct.Phone}"/>  
+        </apex:pageBlockTable>
+    </apex:pageblock>
+    
+    <apex:pageblock title="Account">
+    	<apex:pageBlockTable value="{!Contact.Account}" var="acc">
+            <apex:column value="{!acc.name}"/>
+            <apex:column value="{!acc.BillingState}"/>
+            <apex:column value="{!acc.Phone}"/>
+            <apex:column value="{!acc.Type}"/>
+        </apex:pageBlockTable>
+    </apex:pageblock>
+</apex:page>

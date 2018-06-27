@@ -1,0 +1,21 @@
+<apex:page standardController="StudentMaster__c">
+	<apex:pageblock title="Welcome {!$User.FirstName} Student Master details of {!StudentMaster__c.name} ">
+    	<apex:pageBlockTable value="{!StudentMaster__c}" var="studmast">
+            <apex:column value="{!studmast.Department__c}"/>
+            <apex:column value="{!studmast.Status__c}"/>
+            <apex:column value="{!studmast.University_Name__c}"/>
+            <apex:column value="{!studmast.Age__c}"/>
+        </apex:pageBlockTable>
+    </apex:pageblock>
+    
+    <apex:pageblock title="Marks">
+    	<apex:pageBlockTable value="{!StudentMaster__c.studentmarks__r}" var="stud">
+            <apex:column value="{!stud.Name}"/>
+            <apex:column value="{!stud.Marks__c}"/>
+            <apex:column value="{!stud.Results__c}"/>
+            <apex:column value="{!stud.Subjects__c}"/>  
+        </apex:pageBlockTable>
+    </apex:pageblock>
+    
+    <apex:relatedList list="studentmarks__r" />
+</apex:page>
