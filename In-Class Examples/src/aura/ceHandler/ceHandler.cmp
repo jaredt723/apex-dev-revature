@@ -1,0 +1,16 @@
+<aura:component >
+    <aura:attribute name="messageFromEvent" type="String"/>
+    <aura:attribute name="numEvents" type="Integer" default="0"/>
+    <aura:attribute name="Datatransferusingcompvariables" type="String" default="handlerdata" />
+    <!-- Note that name="cmpEvent" in aura:registerEvent
+    in ceNotifier.cmp -->
+    <!--name below should be same as the notifier component registerevent name-->
+    <aura:handler name="cmpEvent" event="c:ceEvent" action="{!c.handleComponentEvent}"/>
+    <!-- dont get confused event is name of event and name is type of event-->
+    <!-- handler contains the notifier component -->
+    <c:ceNotifier Datafromhandler = "{!v.Datatransferusingcompvariable}"/>    
+    <p>{!v.messageFromEvent}</p>
+    <p>Number of events: {!v.numEvents}</p>
+    <p>Passing data from container to child component {!v.Datatransferusingcompvariable}</p>
+    
+</aura:component>

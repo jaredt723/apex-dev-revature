@@ -1,0 +1,10 @@
+<aura:component >
+    <aura:registerEvent name="cmpEvent" type="c:ceEvent"/>
+    <!-- dont get confused- type is name of event and name is type of event-->
+    <aura:attribute name="Datafromhandler" type="String" />
+    <h1>Simple Component Event Sample</h1>
+    <p><ui:button label="Click here to fire a component event"
+                  press="{!c.fireComponentEvent2}" />
+    </p>
+    <p> Data from parent component {!Datafromhandler}</p>
+</aura:component>

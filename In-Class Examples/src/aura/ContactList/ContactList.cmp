@@ -1,6 +1,8 @@
 <aura:component controller = "ContactController" implements="force:appHostable,flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId,forceCommunity:availableForAllPageTypes,force:lightningQuickAction" access="global" >
     <aura:attribute name="contacts" type="Contact[]"/>
+
     <aura:handler name="init" value="{!this}" action="{!c.doInit}" />
+    <aura:handler event="c:searchkeychange" action="{!c.findall}" />
     
     <ul class="list-group">
     	<aura:iteration items="{!v.contacts}" var="contact">
