@@ -1,6 +1,6 @@
 <aura:component controller="AccountController" implements="force:appHostable,flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId,forceCommunity:availableForAllPageTypes,force:lightningQuickAction" access="global" >
     
-    <!--aura:handler name="init" value="{!this}" action="{!c.doInit}"/-->
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}"/>
     <aura:dependency resource="markup://force:navigateToSObject" type="EVENT"/>
     <aura:attribute name="accObj" type="Account" default="{'sobjectType':'Account'}"/>
     <aura:attribute name="options" type="List" />
