@@ -2,7 +2,7 @@
     <aura:attribute name="contacts" type="Contact[]"/>
 
     <aura:handler name="init" value="{!this}" action="{!c.doInit}" />
-    <aura:handler event="c:searchkeychange" action="{!c.findall}" />
+    <aura:handler event="c:searchkeychange" action="{!c.searchKeyChange2}"/>
     
     <ul class="list-group">
     	<aura:iteration items="{!v.contacts}" var="contact">
