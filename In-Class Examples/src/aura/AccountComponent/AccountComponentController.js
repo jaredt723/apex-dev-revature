@@ -29,7 +29,9 @@
         console.log(editrecordid+'recid');
         if(editrecordid =='' || editrecordid == undefined){
             action = component.get("c.getSave");
-            action.setParams({"accname": name, "accnumber" : accnum, "type": component.find("mySelect").get("v.value")});
+            action.setParams({"accname" : name, "accnumber" : accnum });
+            
+            //action.setParams({"accname": name, "accnumber" : accnum, "type": component.find("mySelect").get("v.value")});
             //console.log('inside empty recid' +component.find("mySelect").get("v.value"));
             
         } else {
@@ -47,8 +49,9 @@
                 "slideDevName": "related"   
             }); 
             event.fire();
-    });
-    
+        });
+        $A.enqueueAction(action);
+        var event = $A.get('e.force:navigateToSObject');
     },
     
     doInit : function(component, event, helper) {
@@ -67,4 +70,4 @@
         }
         
     }
- })
+})

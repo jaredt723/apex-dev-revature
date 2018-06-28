@@ -33,7 +33,7 @@
                         </div>
                         <div class="slds-form-element slds-size_1-of-2">
                             <label class="slds-form-element__label" for="input-02">Account Number</label>
-                            <ui:inputText class="slds-input" value="{!v.accObj.AccoutnNumber}" />
+                            <ui:inputText class="slds-input" value="{!v.accObj.AccountNumber}" />
                         </div>
                     </div>
                 </div>
